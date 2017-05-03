@@ -15,14 +15,11 @@ public class NettyServer {
 		
 		new NettyServer().run();
 	}
-	
+
 	public void run(){
-		
 		EventLoopGroup bossGroup = new NioEventLoopGroup();
 		EventLoopGroup workGroup = new NioEventLoopGroup();
-		
 		try {
-			
 			ServerBootstrap b = new ServerBootstrap();
 			b.group(bossGroup, workGroup);
 			b.channel(NioServerSocketChannel.class);
@@ -31,9 +28,7 @@ public class NettyServer {
 			System.out.println("服务端开启等待客户端连接 ... ...");
 
 			Channel ch = b.bind(7397).sync().channel();
-			
 			ch.closeFuture().sync();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{

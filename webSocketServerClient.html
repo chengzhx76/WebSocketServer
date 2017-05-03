@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>无标题文档</title>
+    <title>webSocketClient</title>
 </head>
 </head>
 <script type="text/javascript">
@@ -12,19 +12,15 @@
     }
     if(window.WebSocket){
         socket = new WebSocket("ws://localhost:7397/websocket");
-
-        socket.onmessage = function(event){
-
+        socket.onmessage = function(event) {
             var ta = document.getElementById('responseText');
             ta.value += event.data+"\r\n";
         };
-
         socket.onopen = function(event){
             var ta = document.getElementById('responseText');
             ta.value = "打开WebSoket 服务正常，浏览器支持WebSoket!"+"\r\n";
         };
         socket.onclose = function(event){
-
             var ta = document.getElementById('responseText');
             ta.value = "";
             ta.value = "WebSocket 关闭"+"\r\n";
@@ -40,7 +36,6 @@
         }else{
             alert("WebSocket 连接没有建立成功！");
         }
-
     }
 
 </script>
